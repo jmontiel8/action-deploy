@@ -1,0 +1,15 @@
+name: 'onpremise-XXXXXX-tec'
+description: 'Support commands for the publishing process.'
+author: Alma Vidals & Jorge Montiel
+branding:
+   icon: 'paperclip'
+   color: 'blue'
+   
+runs:
+    using: 'composite'
+    steps: 
+      - name: Download Artifact 
+        uses: actions/download-artifact@v3
+        with:
+            name: published_${{github.event.repository.name}}
+            path: ${{ github.event.repository.name}}
